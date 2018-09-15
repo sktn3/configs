@@ -1,0 +1,26 @@
+
+
+
+
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/work
+/bin/
+
+# Ignore other unneeded files.
+doc/
+.project
+.DS_Store
+.idea
+.secret
+
+# Vim
+*.swp
+*~
+
+# Emacsの自動保存ファイルを無視する
+\#*#
+
+

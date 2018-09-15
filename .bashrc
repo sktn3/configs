@@ -1,6 +1,6 @@
 
 
-export PATH=/usr/local/bin:/usr/bin
+export PATH=/usr/local/bin:/usr/bin:$PATH
 
 
 
@@ -16,9 +16,11 @@ export LESSCHARSET=utf-8
 
 PS1='\h:\W \u\$ '
 if [ $UID -eq 0 ]; then
-  PS1="\[\033[31m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
+  #PS1="\[\033[31m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
+  PS1="\[\033[31m\]\u@\h\[\033[00m\]:\[\033[01m\]\W\[\033[00m\]\\$ "
 else
-  PS1="\[\033[36m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
+  #PS1="\[\033[36m\]\u@\h\[\033[00m\]:\[\033[01m\]\w\[\033[00m\]\\$ "
+  PS1="\[\033[36m\]\u@\h\[\033[00m\]:\[\033[01m\]\W\[\033[00m\]\\$ "
 fi
 # Make bash check its window size after a process completes
 shopt -s checkwinsize

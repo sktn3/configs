@@ -58,3 +58,8 @@ set ambiwidth=double
 set cursorline   " 現在行に下線を引く
 set nowrap    " はみ出しの折り返し設定
 
+
+"delete キーを押すと、 ^? と出た
+noremap! <C-?> <C-h>
+
+

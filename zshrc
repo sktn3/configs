@@ -26,6 +26,8 @@ setopt share_history
 
 # ヒストリーに重複を表示しない
 setopt histignorealldups
+#直前のコマンドと同じなら、履歴に残さない
+setopt HIST_IGNORE_DUPS
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -44,19 +46,9 @@ setopt pushd_ignore_dups
 setopt correct
 
 
-# グローバルエイリアス
-alias -g L='| less'
-alias -g H='| head'
-alias -g G='| grep'
-alias -g GI='| grep -ri'
-
-
 # エイリアス
-alias lst='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
-alias so='source'
-alias vz='vim ~/.zshrc'
+alias ls='ls -FG'
+alias ll='ls -alFG'
 alias c='cdr'
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
@@ -70,9 +62,10 @@ alias diff='diff -U1'
 # backspace,deleteキーを使えるように
 stty erase ^H
 bindkey "^[[3~" delete-char
+bindkey    "^[3;5~" delete-char
 
 # cdの後にlsを実行
-chpwd() { ls -ltr --color=auto }
+chpwd() { ls }
 
 # どこからでも参照できるディレクトリパス
 cdpath=(~)
@@ -87,7 +80,30 @@ zstyle ':zle:*' word-style unspecified
 setopt no_flow_control
 
 # プロンプトを2行で表示、時刻を表示
-PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~%# "
+#PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~%# "
+#RPROMPT=$'%{\e[38;5;251m%}%D{%b %d}, %*%{\e[m%}'
+
+# プロンプトの表示直前に毎回実行される
+autoload -Uz vcs_info
+precmd() {
+  vcs_info
+  local left="%{\e[38;5;2m%}(%~)%{\e[m%}"
+  print -P $left
+}
+PROMPT='[%F{magenta}%B%n%b%f@%F{blue}%U%m%u%f]# '
+
+# git設定
+#RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+RPROMPT="%{${reset_color}%}"
+#autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+#precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # 補完後、メニュー選択モードになり左右キーで移動が出来る
 zstyle ':completion:*:default' menu select=2
@@ -119,15 +135,4 @@ zstyle ":chpwd:*" recent-dirs-default true
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
-# git設定
-RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 

@@ -18,6 +18,9 @@ doc/
 .idea
 .secret
 
+# clasp
+.clasp.json
+
 # Vim
 *.swp
 *~

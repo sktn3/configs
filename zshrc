@@ -136,3 +136,8 @@ autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
 
+## Go 環境設定
+if [ -x "`which go`" ]; then
+    export GOPATH=$HOME/.go
+    export PATH=$PATH:$GOPATH/bin
+fi

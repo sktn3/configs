@@ -7,16 +7,6 @@ set smartcase "検索時に大文字を含んでいたら大小を区別する
 set wrapscan "検索をファイルの先頭へループする
 
 
-"Input
-set cindent "C言語のインデントに従って自動インデントを行う
-set shiftwidth=2 "行頭での<Tab>の幅
-set tabstop=2 "行頭以外での<Tab>の幅
-set expandtab "<Tab>の代わりに<Space>を挿入する
-set softtabstop=2 "expandtabで<Tab>が対応する<Space>の数
-set backspace=indent,eol,start
-set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらないようにする
-set clipboard=unnamed "クリップボードを利用する
-
 "カーソル位置などの設定保存 
 autocmd BufWinLeave ?* silent mkview
 autocmd BufWinEnter ?* silent loadview
@@ -32,7 +22,7 @@ inoremap <c-f> <right>
 inoremap <c-b> <left>
 
 "" 空白文字を表示
-set list "タブ、行末等の不可視文字を表示する
+"set list "タブ、行末等の不可視文字を表示する
 "set listchars=tab:> ,trail:_,eol:$
 scriptencoding utf-8 "これ入れないと下記が反映されない
 augroup highlightZenkakuSpace "全角スペースを赤色にする
@@ -57,6 +47,16 @@ set showmode
 set ambiwidth=double
 set cursorline   " 現在行に下線を引く
 set nowrap    " はみ出しの折り返し設定
+
+"Input
+set cindent "C言語のインデントに従って自動インデントを行う
+set shiftwidth=2 "行頭での<Tab>の幅
+set tabstop=2 "行頭以外での<Tab>の幅
+set softtabstop=2 "expandtabで<Tab>が対応する<Space>の数
+set backspace=indent,eol,start
+set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらないようにする
+set clipboard=unnamed "クリップボードを利用する
+set expandtab "<Tab>の代わりに<Space>を挿入する
 
 
 "delete キーを押すと、 ^? と出た

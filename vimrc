@@ -63,3 +63,7 @@ set nowrap    " はみ出しの折り返し設定
 noremap! <C-?> <C-h>
 
 
+" vim-go
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+call plug#end()

@@ -59,6 +59,8 @@ alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
 
+alias cd-play='cd ~/GoogleDrive/01_me/10_Play'
+
 # backspace,deleteキーを使えるように
 stty erase ^H
 bindkey "^[[3~" delete-char

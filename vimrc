@@ -10,7 +10,7 @@ augroup END
 colorscheme desert
 set background=dark
 syntax on "シンタックスカラーリングを設定する
-"set number "行番号を表示する
+set number "行番号を表示する
 set title "編集中のファイル名を表示する
 set showcmd "入力中のコマンドを表示する
 set ruler "座標を表示する
@@ -23,6 +23,7 @@ set ambiwidth=double
 set cursorline   " 現在行に下線を引く
 set nowrap    " はみ出しの折り返し設定
 "" 空白文字を表示
+set nolist "タブ、行末等の不可視文字を表示しない
 "set list "タブ、行末等の不可視文字を表示する
 "set listchars=tab:> ,trail:_,eol:$
 

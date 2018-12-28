@@ -84,15 +84,21 @@ setopt no_flow_control
 # プロンプトを2行で表示、時刻を表示
 #PROMPT="%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color}(%*%) %~%# "
 #RPROMPT=$'%{\e[38;5;251m%}%D{%b %d}, %*%{\e[m%}'
+#
+#
+#PROMPT（zsh）で数字で指定できる色は以下のワンライナーで観れる
+#for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+
 
 # プロンプトの表示直前に毎回実行される
 autoload -Uz vcs_info
 precmd() {
   vcs_info
-  local left="%{\e[38;5;2m%}(%~)%{\e[m%}"
+  local left="%F{008}%D %*%f|\e[38;5;2m%}%~%{\e[m%}"
   print -P $left
 }
-PROMPT='[%F{magenta}%B%n%b%f@%F{blue}%U%m%u%f]# '
+PROMPT='%K{250}[%F{magenta}%B%n%b%f@%F{blue}%U%m%u%f]%k# '
+
 
 # git設定
 #RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"

@@ -4,3 +4,7 @@
 
 - from web ...
 - copy right is unknown ...
+
+# usage
+
+- ln zshrc ~/.zshrc

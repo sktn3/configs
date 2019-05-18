@@ -10,6 +10,7 @@
 /tmp
 /work
 /bin/
+.DS_Store
 
 # Ignore other unneeded files.
 doc/

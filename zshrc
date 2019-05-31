@@ -8,7 +8,7 @@ export LANG=ja_JP.UTF-8
 # パスを追加したい場合
 #export PATH="$HOME/bin:$PATH"
 # homebrew
-export PATH=$PATH:/usr/local/bin:/usr/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:~/GoogleDrive/01_me/01_Play/bin
 
 # 色を使用
 autoload -Uz colors

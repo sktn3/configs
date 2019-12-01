@@ -1,4 +1,7 @@
 
+# GoogleDriveへのパス
+MyPATH=$HOME/GoogleDrive/01_me/01_Play/
+
 # Ctrl+Dでログアウトしてしまうことを防ぐ
 setopt IGNOREEOF
 
@@ -8,7 +11,7 @@ export LANG=ja_JP.UTF-8
 # パスを追加したい場合
 #export PATH="$HOME/bin:$PATH"
 # homebrew
-export PATH=$PATH:/usr/local/bin:/usr/bin:~/GoogleDrive/01_me/01_Play/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:$MyPATH/bin
 
 # 色を使用
 autoload -Uz colors
@@ -59,7 +62,7 @@ alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
 
-alias cd-play='cd ~/GoogleDrive/01_me/10_Play'
+alias cd-play='cd $MyPATH'
 
 # backspace,deleteキーを使えるように
 stty erase ^H
@@ -147,7 +150,7 @@ alias zmv='noglob zmv -W'
 ## Go 環境設定
 if [ -x "`which go`" ]; then
   # export GOPATH=$HOME/.go
-  export GOPATH=$HOME/GoogleDrive/01_me/01_Play/GOPATH
+  export GOPATH=$MyPATH/GOPATH
   export GOROOT=$( go env GOROOT )
   export PATH=$GOPATH/bin:$PATH
 fi

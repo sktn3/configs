@@ -146,7 +146,8 @@ alias zmv='noglob zmv -W'
 
 ## Go 環境設定
 if [ -x "`which go`" ]; then
-  export GOPATH=$HOME/.go
+  # export GOPATH=$HOME/.go
+  export GOPATH=$HOME/GoogleDrive/01_me/01_Play/GOPATH
   export GOROOT=$( go env GOROOT )
   export PATH=$GOPATH/bin:$PATH
 fi

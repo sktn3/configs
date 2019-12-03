@@ -1,6 +1,6 @@
 
 # GoogleDriveへのパス
-MyPATH=$HOME/GoogleDrive/01_me/01_Play/
+MyPATH=$HOME/GoogleDrive/01_me/01_Play
 
 # Ctrl+Dでログアウトしてしまうことを防ぐ
 setopt IGNOREEOF

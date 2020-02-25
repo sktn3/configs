@@ -19,6 +19,9 @@ doc/
 .idea
 .secret
 Icon?
+*.[aod]
+*.bin
+*.lock
 
 # clasp
 .clasp.json

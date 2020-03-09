@@ -63,6 +63,9 @@ alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
 
+alias vi='nvim'
+alias vim='nvim'
+
 alias cd-play='cd $MyPATH'
 
 # backspace,deleteキーを使えるように
@@ -155,3 +158,6 @@ if [ -x "`which go`" ]; then
   export GOROOT=$( go env GOROOT )
   export PATH=$GOPATH/bin:$PATH
 fi
+
+#neovim etc
+export XDG_CONFIG_HOME="$HOME/.config"

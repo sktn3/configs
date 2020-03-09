@@ -1,0 +1,24 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = {'colorscheme': 'wombat'}
+'''
+
+# Toml
+[[plugins]]
+repo  = 'cespare/vim-toml'
+
+# Golang
+[[plugins]]
+repo = 'fatih/vim-go'
+
+# airline
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+let g:airline_powerline_fonts = 1
+'''
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'

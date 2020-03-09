@@ -50,7 +50,8 @@ setopt correct
 
 
 # エイリアス
-alias ls='ls -FG'
+#alias ls='ls -FG'
+alias ls='exa'
 alias ll='ls -alFG'
 alias c='cdr'
 # historyに日付を表示

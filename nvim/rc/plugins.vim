@@ -40,6 +40,8 @@ let g:deoplete#enable_at_startup = 1
 call dein#end()
 call dein#save_state()
 
+
+
 if has('vim_starting') && dein#check_install()
     call dein#install()
 endif

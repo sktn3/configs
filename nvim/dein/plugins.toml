@@ -50,6 +50,7 @@ repo = 'jistr/vim-nerdtree-tabs'
 
 # 非同期でLintツールを実行
 [[plugins]]
+#repo = 'dense-analysis/ale'   # = w0rp/ale
 repo = 'w0rp/ale'
 
 # Go言語の開発用プラグイン
@@ -59,6 +60,10 @@ repo = 'fatih/vim-go'
 # シンタックスやインデントを提供するプラグイン
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+
+# シンタックスやインデントを提供するプラグイン
+[[plugins]]
+repos = 'othree/yajs.vim'
 
 # MD
 #[[plugins]]

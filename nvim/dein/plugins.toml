@@ -1,3 +1,7 @@
+
+# pluginを削除するコマンド
+# :call dein#recache_runtimepath()
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -6,15 +10,12 @@ hook_add = '''
     let g:lightline = {'colorscheme': 'wombat'}
 '''
 
-# Toml
 [[plugins]]
 repo  = 'cespare/vim-toml'
 
-# Golang
 [[plugins]]
 repo = 'fatih/vim-go'
 
-# airline
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
@@ -31,4 +32,19 @@ repo = 'vim-airline/vim-airline-themes'
 
 #[[plugins]]
 #repo = 'jistr/vim-nerdtree-tabs'
+
+#[[plugins]]
+#repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
 

@@ -9,9 +9,12 @@ set ruler                                                       " カーソル�
 set cursorline                                                  " カーソルハイライト
 
 " tab setting
-set expandtab                                                   " tabを複数のspaceに置き換え
-set tabstop=2                                                   " tabは半角2文字
-set shiftwidth=2                                                " tabの幅
+set expandtab         " tabを複数のspaceに置き換え
+set tabstop=4         " tabは半角2文字
+set shiftwidth=4      " tabの幅
+set softtabstop=4     " number of spaces in tab when editing
+set autoindent
+set copyindent
 
 
 " カーソル位置記憶

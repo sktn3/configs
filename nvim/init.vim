@@ -1,10 +1,35 @@
 
+" 〜めも〜
+" ＜表示＞
+" C-n：フォルダ参照 NERDTreeToggle
+"
+" ＜表示＞
+" C-f,C-bのスクロールをスムーズにしてある
+"
+" ＜選択＞
+" V-mode / v：選択範囲の拡大
+" V-mode / C-v：選択範囲の縮小
+"
+" ＜移動＞
+" <Leader> = \
+" <Leader>-j
+" <Leader>-l
+" <Leader>-k
+"
+" ＜移動＞
+" C-k：lint 次の間違っている箇所へ移動
+" C-j：lint 前の間違っている箇所へ移動
+"
+" 〜めも〜
 
 set number
 
 set clipboard+=unnamedplus   " クリップボードの使用
 set visualbell               " ビープ音を可視化
-"set laststatus=2            " ステータスラインを常に表示
+set laststatus=2             " ステータスラインを常に表示
+
+" font
+set ambiwidth=double         " ○や□の文字が崩れる問題を回避
 
 " cursorl setting
 set ruler                    " カーソルの位置表示
@@ -17,7 +42,7 @@ set tabstop=4                " tabは半角2文字
 set shiftwidth=4             " tabの幅
 set softtabstop=4            " number of spaces in tab when editing
 set autoindent
-set list listchars=tab:\>\-    " 不可視文字を可視化(タブが「?-」と表示される)
+set list listchars=tab:\>\-  " 不可視文字を可視化(タブが「?-」と表示される)
 set smartindent              " インデントはスマートインデント
 set copyindent
 
@@ -92,27 +117,12 @@ endfunction
 call s:load('plugins')
 
 
-" Plugin : vim-airline ====================================================
-" モードの表示名を定義(デフォルトだと長くて横幅を圧迫するので略称にしている)
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'R'  : 'R',
-            \ 'c'  : 'C',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ }
-
-
-" パワーラインでかっこよく
-let g:airline_powerline_fonts = 1
-" カラーテーマ指定してかっこよく
-let g:airline_theme = 'badwolf'
-" タブバーをかっこよく
-let g:airline#extensions#tabline#enabled = 1
+" Plugin : vim-airline ===============================================
+let g:airline_powerline_fonts = 1                 " パワーラインでかっこよく
+let g:airline_theme = 'badwolf'                   " カラーテーマ指定してかっこよく
+"let g:airline_theme = 'molokai'
+"let g:airline_theme = 'tomorrow'
+let g:airline#extensions#tabline#enabled = 1      " タブバーをかっこよく
 
 " 選択行列の表示をカスタム(デフォルトだと長くて横幅を圧迫するので最小限に)
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
@@ -125,26 +135,39 @@ let g:airline#extensions#hunks#enabled = 0
 
 " Lintツールによるエラー、警告を表示(ALEの拡張)
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#ale#error_symbol = 'E:'
-let g:airline#extensions#ale#warning_symbol = 'W:'
+let g:airline#extensions#ale#error_symbol = 'Err:'
+let g:airline#extensions#ale#warning_symbol = 'Warn:'
 
-let g:airline_left_sep = '□'
-let g:airline_left_alt_sep = '■'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
+"let g:airline_left_sep = '□'
+"let g:airline_left_alt_sep = '■'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
 
 
-" Plugin : deoplete =========================================================
+" Plugin : deoplete ==================================================
 let g:deoplete#enable_at_startup = 1
 
 
 
-" Plugin :  w0rp/ale ========================================================
-" 保存時のみ実行する
-let g:ale_lint_on_text_changed = 0
-" 表示に関する設定
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '□'
+" Plugin : w0rp/ale ==================================================
+let g:ale_lint_on_text_changed = 0               " 保存時のみ実行する
+let g:ale_lint_on_enter = 1                      " ファイルを開いたときにlint実行
+let g:ale_lint_on_text_changed = 'never'         " 編集中のlintはしない
+
+let g:ale_sign_error = '⨉'                       " 表示に関する設定
+let g:ale_sign_warning = '⚠'                     " 表示に関する設定
+
+" エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_column_always = 0                 " エラー表示の列を常時表示しない
+
+" lint結果をロケーションリストとQuickFixには表示しない
+" 出てると結構うざいしQuickFixを書き換えられるのは困る
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
+
 let g:airline#extensions#ale#open_lnum_symbol = '('
 let g:airline#extensions#ale#close_lnum_symbol = ')'
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
@@ -153,6 +176,44 @@ highlight link ALEWarningSign StorageClass
 " Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+
+" Plugin : NERDTreeToggle ============================================
+map <C-n> :NERDTreeToggle<CR>
+
+
+
+" Plugin : Vim-go ====================================================
+let g:go_def_mapping_enabled = 0
+let g:go_fmt_autosave = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+
+
+" Plugin : vim-closetag ==============================================
+let g:closetag_filenames = '*.html,*.xml,*.json,*.js,*.css,*.vue'
+
+
+
+" Plugin : vim-expand-region =========================================
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+
+" Plugin : vim-easymotion ============================================
+map  <Leader>j <Plug>(easymotion-bd-w)
+nmap <Leader>j <Plug>(easymotion-overwin-w)
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+map <Leader>k <Plug>(easymotion-bd-f)
+nmap <Leader>k <Plug>(easymotion-overwin-f)
+
+" Plugin : yuttie/comfortable-motion.vim =============================
+let g:comfortable_motion_interval = 2400.0 / 60
+let g:comfortable_motion_friction = 100.0
+let g:comfortable_motion_air_drag = 3.0
 
 
 

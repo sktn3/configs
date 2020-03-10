@@ -2,6 +2,9 @@
 # pluginを削除するコマンド
 # :call dein#recache_runtimepath()
 
+# 参考
+# https://qiita.com/reireias/items/5364dcaada1a5b88a206
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -14,8 +17,9 @@ hook_add = '''
 repo  = 'cespare/vim-toml'
 
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'yuttie/comfortable-motion.vim'
 
+# ステータスバーを多機能に
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
@@ -24,27 +28,64 @@ let g:airline_powerline_fonts = 1
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-#[[plugins]]
-#repo = 'scrooloose/nerdtree'
 
-#[[plugins]]
-#repo = 'Xuyuanp/nerdtree-git-plugin'
+# vimからGit操作を行うことができる
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 
-#[[plugins]]
-#repo = 'jistr/vim-nerdtree-tabs'
+
+# ファイルツリーを表示
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+
 
 #[[plugins]]
 #repo = 'tpope/vim-surround'
 
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-
+# 非同期でLintツールを実行
 [[plugins]]
 repo = 'w0rp/ale'
 
+# Go言語の開発用プラグイン
 [[plugins]]
 repo = 'fatih/vim-go'
 
+# シンタックスやインデントを提供するプラグイン
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+
+# MD
+#[[plugins]]
+#repo = 'vim-instant-markdown'
+
+# 対となる括弧を追加/削除してくれるプラグイン
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+# htmlタグを補完
+[[plugins]]
+repo = 'alvan/vim-closetag'
+
+# インクリメンタルサーチ                     ※fzfコマンドのインストールが必要
+#[[plugins]]
+#repo = 'junegunn/fzf.vim'
+
+#[[plugins]]
+#repo = 'junegunn/fzf'
+
+# ヴィジュアルモードで拡大・縮小
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+# 縦横無尽に移動する
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+
 

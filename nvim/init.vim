@@ -138,6 +138,8 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#ale#error_symbol = 'Err:'
 let g:airline#extensions#ale#warning_symbol = 'Warn:'
 
+let g:ale_linters = {'javascript': ['eslint']}
+
 "let g:airline_left_sep = '□'
 "let g:airline_left_alt_sep = '■'
 "let g:airline_right_sep = '⮂'

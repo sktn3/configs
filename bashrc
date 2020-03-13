@@ -3,6 +3,9 @@
 export PATH=/usr/local/bin:/usr/bin:$PATH
 
 
+#neovim etc
+export XDG_CONFIG_HOME="$HOME/.config"
+
 
 alias rm="rm -i"
 alias mv="mv -i"
@@ -26,3 +29,4 @@ fi
 shopt -s checkwinsize
 
 [ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"
+

@@ -32,9 +32,19 @@ set laststatus=2             " ステータスラインを常に表示
 set ambiwidth=double         " ○や□の文字が崩れる問題を回避
 
 " cursorl setting
+set mouse=a
 set ruler                    " カーソルの位置表示
 set cursorline               " カーソルハイライト
 set cursorcolumn             " 現在の行を強調表示（縦）
+
+" 折り返し表示の際にも表示行単位で移動する
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+" インサートモードでjjと入力した場合はESCとみなす
+inoremap jj <Esc>
 
 " tab
 set expandtab                " tabを複数のspaceに置き換え
@@ -83,6 +93,14 @@ set inccommand=split          " 文字列置換をインタラクティブに表
 " very magic
 nnoremap /  /\v
 
+" ソースコードを折畳み表示する
+set foldmethod=marker
+" manual: 手動で折畳を定義する
+" indent: インデントの数を折畳のレベル(深さ)とする
+" expr:   折畳を定義する式を指定する
+" syntax: 構文強調により折畳を定義する
+" diff:   変更されていないテキストを折畳対象とする
+" marker: テキスト中の印で折畳を定義する
 
 " return to normal mode
 inoremap <C-c> <Esc>

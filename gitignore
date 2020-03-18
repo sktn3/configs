@@ -30,6 +30,9 @@ Icon?
 *.swp
 *~
 
+# npm
+package-lock.*
+
 # Emacsの自動保存ファイルを無視する
 \#*#
 

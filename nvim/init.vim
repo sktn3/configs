@@ -36,6 +36,7 @@ set mouse=a
 set ruler                    " カーソルの位置表示
 set cursorline               " カーソルハイライト
 set cursorcolumn             " 現在の行を強調表示（縦）
+set whichwrap=b,s,<,>,[,]    "左右のカーソル移動で行間移動可能にする。
 
 " 折り返し表示の際にも表示行単位で移動する
 nnoremap j gj

@@ -67,6 +67,7 @@ alias vi='nvim'
 alias vim='nvim'
 
 alias cd-play='cd $MyPATH'
+alias cd..='cd ..'
 
 # backspace,deleteキーを使えるように
 stty erase ^H

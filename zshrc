@@ -3,6 +3,7 @@
 # GoogleDriveへのパス
 #########################################################################
 MyPATH=$HOME/GoogleDrive/01_me/01_Play
+MyPATH2=$HOME/GoogleDrive/11_Kaoru/pg
 
 #########################################################################
 # Ctrl+Dでログアウトしてしまうことを防ぐ
@@ -78,6 +79,7 @@ alias vi='nvim'
 alias vim='nvim'
 
 alias cd-play='cd $MyPATH'
+alias cd-kaoru='cd $MyPATH2'
 alias cd..='cd ..'
 
 # backspace,deleteキーを使えるように

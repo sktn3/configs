@@ -200,8 +200,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 " ptyhon3
-let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv versions | grep "^\s*2" | tr -d " ")/bin/python") || echo -n $(which python2)')
-let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv versions | grep "^\s*3" | tr -d " ")/bin/python") || echo -n $(which python3)')
+let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(ls ~/.pyenv/versions/ | grep "^2")/bin/python") || echo -n $(which python2)')
+let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(ls ~/.pyenv/versions/ | grep "^3")/bin/python") || echo -n $(which python3)')
 
 " Plugin : NERDTreeToggle ============================================
 map <C-n> :NERDTreeToggle<CR>

@@ -56,3 +56,4 @@ lib*-*.json
 build*-*.json
 *bin*-*.json
 
+tmp/setMyConf.sh
